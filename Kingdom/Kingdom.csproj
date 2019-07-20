@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <NoStdLib>true</NoStdLib>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{571D70F4-3F0E-483F-B45E-A9C83E73E005}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kingdom</RootNamespace>
+    <AssemblyName>Kingdom</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Achievement.cs" />
+    <Compile Include="AIsoptik.cs" />
+    <Compile Include="App.cs" />
+    <Compile Include="baseAI.cs" />
+    <Compile Include="Building.cs" />
+    <Compile Include="City.cs" />
+    <Compile Include="Game.cs" />
+    <Compile Include="Generator.cs" />
+    <Compile Include="HeightMapGen.cs" />
+    <Compile Include="MapObject.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="OwnerObject.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="Point.cs" />
+    <Compile Include="Pong.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RecruitTent.cs" />
+    <Compile Include="Research.cs" />
+    <Compile Include="Resource.cs" />
+    <Compile Include="SaveManager.cs" />
+    <Compile Include="Terrain.cs" />
+    <Compile Include="textureMap.cs" />
+    <Compile Include="Unit.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bridge.json" />
+    <None Include="obj\Debug\CoreCompileInputs.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\Kingdom.csprojResolveAssemblyReference.cache" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Bridge, Version=16.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bridge.Core.16.0.0-beta3\lib\net40\Bridge.dll</HintPath>
+    </Reference>
+    <Reference Include="Bridge.Html5, Version=16.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bridge.Html5.16.0.0-beta3\lib\net40\Bridge.Html5.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Bridge.Newtonsoft.Json.1.0.0-beta3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Achievement.html" />
+    <Content Include="bin\Debug\Bridge.dll" />
+    <Content Include="bin\Debug\Bridge.Html5.dll" />
+    <Content Include="bin\Debug\Bridge.Html5.xml" />
+    <Content Include="bin\Debug\Bridge.xml" />
+    <Content Include="bin\Debug\bridge\bridge.console.js" />
+    <Content Include="bin\Debug\bridge\bridge.console.min.js" />
+    <Content Include="bin\Debug\bridge\bridge.js" />
+    <Content Include="bin\Debug\bridge\bridge.meta.js" />
+    <Content Include="bin\Debug\bridge\bridge.meta.min.js" />
+    <Content Include="bin\Debug\bridge\bridge.min.js" />
+    <Content Include="bin\Debug\bridge\index.html" />
+    <Content Include="bin\Debug\bridge\index.min.html" />
+    <Content Include="bin\Debug\bridge\Kingdom.js" />
+    <Content Include="bin\Debug\bridge\Kingdom.meta.js" />
+    <Content Include="bin\Debug\bridge\Kingdom.meta.min.js" />
+    <Content Include="bin\Debug\bridge\Kingdom.min.js" />
+    <Content Include="bin\Debug\Kingdom.dll" />
+    <Content Include="bin\Debug\Kingdom.pdb" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bluper.css" />
+    <Content Include="default.css" />
+    <Content Include="game.html" />
+    <Content Include="green.css" />
+    <Content Include="howToPlay.html" />
+    <Content Include="index.html" />
+    <Content Include="obj\Debug\Kingdom.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\Kingdom.dll" />
+    <Content Include="obj\Debug\Kingdom.pdb" />
+    <Content Include="orange.css" />
+    <Content Include="purple.css" />
+    <Content Include="Resources\Img\background.png" />
+    <Content Include="Resources\Img\border.png" />
+    <Content Include="Resources\Img\border_blue.png" />
+    <Content Include="Resources\Img\border_green.png" />
+    <Content Include="Resources\Img\border_red.png" />
+    <Content Include="Resources\Img\border_yellow.png" />
+    <Content Include="Resources\Img\city_blue.png" />
+    <Content Include="Resources\Img\city_green.png" />
+    <Content Include="Resources\Img\city_neutral.png" />
+    <Content Include="Resources\Img\city_red.png" />
+    <Content Include="Resources\Img\city_yellow.png" />
+    <Content Include="Resources\Img\loading_circle.png" />
+    <Content Include="Resources\Img\loading_dot.png" />
+    <Content Include="Resources\Img\resource_bush.png" />
+    <Content Include="Resources\Img\resource_bush_done.png" />
+    <Content Include="Resources\Img\resource_deer.png" />
+    <Content Include="Resources\Img\resource_deer_done.png" />
+    <Content Include="Resources\Img\resource_farm.png" />
+    <Content Include="Resources\Img\resource_farm_done.png" />
+    <Content Include="Resources\Img\resource_fish.png" />
+    <Content Include="Resources\Img\resource_fish_done.png" />
+    <Content Include="Resources\Img\terrain_land.png" />
+    <Content Include="Resources\Img\terrain_mountain.png" />
+    <Content Include="Resources\Img\terrain_sea.png" />
+    <Content Include="Resources\Img\textureMap.png" />
+    <Content Include="Resources\Img\unavalibeTile.png" />
+    <Content Include="Resources\Img\unit_archer.png" />
+    <Content Include="Resources\Img\unit_basic_blue.png" />
+    <Content Include="Resources\Img\unit_basic_green.png" />
+    <Content Include="Resources\Img\unit_basic_red.png" />
+    <Content Include="Resources\Img\unit_basic_yellow.png" />
+    <Content Include="Resources\Img\unit_catapult.png" />
+    <Content Include="Resources\Img\unit_chivalry.png" />
+    <Content Include="Resources\Img\unit_explorer.png" />
+    <Content Include="Resources\Img\unit_heavyInfantry.png" />
+    <Content Include="Resources\Img\unit_ship.png" />
+    <Content Include="Resources\Img\unit_warrior.png" />
+    <Content Include="Resources\Music\Kingdom - main theme.wav" />
+    <Content Include="Resources\Music\Kingdom - sound test.wav" />
+    <Content Include="settings.html" />
+    <Content Include="styles.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Bridge.Min.16.0.0-beta3\build\Bridge.Min.targets" Condition="Exists('..\packages\Bridge.Min.16.0.0-beta3\build\Bridge.Min.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Bridge.Min.16.0.0-beta3\build\Bridge.Min.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Bridge.Min.16.0.0-beta3\build\Bridge.Min.targets'))" />
+  </Target>
+</Project>

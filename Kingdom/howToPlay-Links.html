@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <link href="default.css" type="text/css" rel="stylesheet" />
+    <title>How to play</title>
+
+    <script>
+        function showHelp() {
+            document.body.innerHTML += "<div class='lightbox' onclick='this.remove();'><div class='lightboxContent' onclick='return false;' style='overflow: hidden;'><iframe src='howToPlay.html'></iframe></div></div>";
+        }
+    </script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        // Smooth scroll from https://www.w3schools.com/jquery/tryit.asp?filename=tryjquery_eff_animate_smoothscroll
+
+        $(document).ready(function () {
+            // Add smooth scrolling to all links
+            $("a").on('click', function (event) {
+
+                // Make sure this.hash has a value before overriding default behavior
+                if (this.hash !== "") {
+                    // Prevent default anchor click behavior
+                    event.preventDefault();
+
+                    // Store hash
+                    var hash = this.hash;
+
+                    // Using jQuery's animate() method to add smooth page scroll
+                    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                    $('html, body').animate({
+                        scrollTop: $(hash).offset().top
+                    }, 800, function () {
+
+                        // Add hash (#) to URL when done scrolling (default click behavior)
+                        window.location.hash = hash;
+                    });
+                } // End if
+            });
+        });
+    </script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li>
+                <a href="index.html"><strong>Kingdom</strong></a>
+            </li>
+            <li>
+                <a href="game.html">Play</a>
+            </li>
+            <li>
+                <a href="settings.html">Settings</a>
+            </li>
+            <li>
+                <a href="howToPlay.html">How to play</a>
+            </li><!--
+            <li>
+                <a href="javascript:;" onclick="showHelp();">How to play (open in iframe)</a>
+            </li>-->
+        </ul>
+    </nav>
+    <h1 id="controls">Controls</h1>
+    <div class="left">
+        <!--<p>
+            Here, you can find short summary of controls. You can always see this ingame by clicking the button 'How to play (open in iframe)' in navigation bar.
+        </p>-->
+        <p>
+            <strong>Left Mouse Button</strong> to select thing, that is on target tile. <br />
+            <ul>
+                <li>
+                    If there is unit on that tile, <a href="#unit">unit</a> will be selected. <br />
+                    If not and there is <a href="#city">city</a> or <a href="#resource">resource</a>, city or resource will be selected. <br />
+                    After selecting anything, info about it will be displayed in <a href="#infoPanel">right panel</a>.
+                </li>
+            </ul>
+        </p>
+        <p>
+            <strong>Ctrl + Left Mouse Button</strong> to select thing, that is on target tile. <br />
+            <ul>
+                <li>
+                    If there is any <a href="#unit">unit</a>, unit will NOT be selected. <br />
+                    If there is <a href="#city">city</a> or <a href="#resource">resource</a>, city or resource will be selected.<br />
+                    After selecting anything, info about it will be displayed in <a href="#infoPanel">right panel</a>.
+                </li>
+            </ul>
+        </p>
+        <p>
+            <strong>Enter</strong> or <strong>Click (Next Turn button)</strong> to end your turn
+            <ul>
+                <li>
+                    This will end your turn, so another player can play. <br />
+                    This adds you some <a href="#resource">resource</a> (shown in right panel -> Player 1 (12 Resources) <strong>(+4)</strong>)<br />
+                    This will refresh move & attack points of your <a href="#unit">units</a>
+                </li>
+            </ul>
+        </p>
+    </div>
+    <h1 id="unit">Units</h1>
+    <div class="left">
+        <p>
+            Units are one of the most important thing in this game. Units can move, fight, capture <a href="#city">cities</a> and destroy <a href="#trainTent">training tents</a>.<br />
+            There are multiple types of units, each with their unique stats and abilities. You can recognize type of unit by its weapon or by clicking it - type of unit is written in <a href="#infoPanel">right panel</a>.<br />
+            You can move units by clicking the unit - selecting it - and then clicking on another tile. You can <strong>Ctrl + Click</strong> or <strong>Alt + Click</strong> on any tile to storno unit
+            movement and deselect the unit.<br />
+            When you want to attack any enemy unit, first move next to it and then <strong>Click</strong> target unit.<br />
+            Units can be trained in <a href="#city">cities</a> or, for 150% of the original price, in <a href="#trainTent">training tents</a>.<br />
+            Training tents can be built by any unit for some resources on any tile, that is 'Land' type and has no resource and no city there.
+        </p>
+    </div>
+    <h1 id="city">City</h1>
+    <div class="left">
+        <p>
+            Cities are very important, they give you <strong>resources</strong> (money) every turn, that can be used for training <a href="#unit">units</a>, building <a href="#trainTent">training tents</a> and more. You can also train units here. <br />
+            When you lose all cities, you lose the game. Capture all of them to win. <br />
+            Cities also heal all your units a little each turn. <br />
+            City can be captured by doing this:
+            <ul>
+                <li>
+                    1) Move your unit to neutral or enemy city <br />
+                    2) Wait there 1 turn <br />
+                    3) <strong>Ctrl + Click</strong> the city (select it) and click <strong>Capture</strong> button
+                </li>
+            </ul>
+        </p>
+    </div>
+    <h1 id="resource">Resource</h1>
+    <span style="font-size: 1.2em;">This text is about Resource - building, not Resources - money</span>
+    <div class="left">
+        <p>
+            Resource is something, you can rebuild. Rebuilded resources gives prosperity points to nearest <a href="#city">city</a>, making their output bigger. <br />
+            Rebuilding resources costs resources (money). You can rebuild only resources, that are near your cities.<br />
+            You can rebuild resources by selecting them and clicking <strong>Rebuild</strong> button.
+        </p>
+    </div>
+    <h1 id="trainTent">Recruit Tents</h1>
+    <div class="left">
+        <p>
+            Training tents can be built by any <a href="#unit">unit</a> at any 'Land' tile that has no <a href="#resource">resource</a> and no <a href="#city">city</a>. <br />
+            Building tent costs some resources, but thanks to it, you can train units for 150% of its original price anywhere on the battlefield! <br />
+            You can build Training Tents by selecting unit at right place and clicking <strong>Build Recruit Tent</strong><br />
+            Be carefull, when any enemy unit stays at least one turn in your Recruit Tent, the Tent is destroyed and your enemy receives 70% of its cost. 
+        </p>
+    </div>
+    <h1 id="infoPanel">Info Panel</h1>
+    <div class="left">
+        <p>
+            Info Panel is block of text in right side of screen (ingame), that shows information about currently selected object. <br />
+            In Info Panel are also located buttons that are used to end turns, recruit units, capture cities, etc.
+        </p>
+    </div>
+    
+    <p style="font-size:1.8em">You're ready now! <a href="game.html">Start new game</a><br />Or go back to <a href="index.html">Main menu</a></p>
+</body>
+</html>

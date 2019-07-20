@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Kingdom - Settings</title>
+    <link href="default.css" type="text/css" rel="stylesheet" onload="this.href = window.localStorage['kingdom_style'] == undefined ? 'bluper.css' : window.localStorage['kingdom_style'];" />
+
+    <link rel="icon" type="image/png" href="http://spam.soptik.sweb.cz/kingdom-test-1489-27817/favicon.png" />
+    <meta property="og:title" content="Kingdom - Strategy Game" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://spam.soptik.sweb.cz/kingdom-test-1489-27817/" />
+    <meta property="og:image" content="http://spam.soptik.sweb.cz/kingdom-test-1489-27817/favicon.png" />
+    <meta property="og:description" content="Game for ITnetwork Summer 2017 competition. Made by Petr Šťastný " />
+
+    <script>
+        function showHelp() {
+            document.body.innerHTML += "<div class='lightbox' onclick='this.remove();'><div class='lightboxContent' onclick='return false;' style='overflow: hidden;'><iframe src='howToPlay.html'></iframe></div></div>";
+        }
+
+        var saved = true;
+        function changeTitle(text) {
+            document.getElementsByTagName('title')[0].innerHTML = text;
+        }
+
+        function Initialize() {
+            var moveAnimSliderValue = window.localStorage['kingdom-move_anim_speed'];
+            if (!(moveAnimSliderValue >= 0 && moveAnimSliderValue <= 1))
+                moveAnimSliderValue = 0.2;
+
+            gid("move_anim_slider").value = moveAnimSliderValue;
+            gid("RangeVis").innerHTML = moveAnimSliderValue == 0 ? "Off" : moveAnimSliderValue;
+
+            var moveAnimSliderValue = window.localStorage['kingdom-offset_anim_speed'];
+            if (!(moveAnimSliderValue >= 0 && moveAnimSliderValue <= 1))
+                moveAnimSliderValue = 0.2;
+
+            gid("offset_anim_slider").value = moveAnimSliderValue;
+            gid("offsetAnimVis").innerHTML = moveAnimSliderValue == 0 ? "Off" : moveAnimSliderValue;
+
+            var musicSliderValue = window.localStorage['kingdom-music_volume'];
+            if (!(musicSliderValue >= 0 && musicSliderValue <= 1))
+                musicSliderValue = 0.1;
+
+            gid("music_volume").value = musicSliderValue;
+            gid("musicVolumeVis").innerHTML = musicSliderValue == 0 ? "Off" : musicSliderValue;
+            gid("soundTest").volume = musicSliderValue;
+
+            gid('debug_mode_checkbox').checked = window.localStorage['kingdom-debug_mode'] == 'true';
+
+            gid('begin_fog').checked =!(window.localStorage['kingdom-begin_fog'] == 'false');
+
+            var v = window.localStorage['kingdom-number_of_tiles'];
+            if (!(v >= 32 && v <= 256))
+                v = 64;
+            gid('number_of_tiles').value = v;
+
+            v = window.localStorage['kingdom-visible_tiles'];
+            if (!(v >= 10 && v <= 50))
+                v = 20;
+            gid('number_of_visible_tiles').value = v;
+
+            v = window.localStorage['kingdom-number_opponents'];
+            if (!(v >= 1 && v <= 3))
+                v = 1;
+            gid('number_of_opponents').value = v;
+        }
+
+        function Save() {
+            saved = true;
+            changeTitle('Kingdom');
+            window.localStorage['kingdom-move_anim_speed'] = gid('move_anim_slider').value;
+            window.localStorage['kingdom-offset_anim_speed'] = gid('offset_anim_slider').value;
+            window.localStorage['kingdom-music_volume'] = gid('music_volume').value;
+            window.localStorage['kingdom-debug_mode'] = gid('debug_mode_checkbox').checked;
+            window.localStorage['kingdom-number_of_tiles'] = gid('number_of_tiles').value;
+            window.localStorage['kingdom-visible_tiles'] = gid('number_of_visible_tiles').value;
+            window.localStorage['kingdom-number_opponents'] = gid('number_of_opponents').value;
+            window.localStorage['kingdom-begin_fog'] = gid('begin_fog').checked;
+        }
+
+        function ResetDefault() {
+            saved = false;
+            changeTitle('Kingdom *');
+            gid("move_anim_slider").value = 0.2;
+            gid("RangeVis").innerHTML = 0.2;
+            gid("offset_anim_slider").value = 0.2;
+            gid("offsetAnimVis").innerHTML = 0.2;
+            gid("music_volume").value = 0.1;
+            gid("musicVolumeVis").innerHTML = 0.1;
+            gid("soundTest").volume = 0.1;
+            gid("RangeVis").innerHTML = 0.1;
+            gid('debug_mode_checkbox').checked = false;
+            gid('number_of_tiles').value = 64;
+            gid('number_of_visible_tiles').value = 20;
+            gid('number_of_opponents').value = 1;
+        }
+
+        function gid(id) {
+            return document.getElementById(id);
+        }
+    </script>
+</head>
+<body onload="Initialize();">
+    <div style="display: none">
+        <audio controls="controls" id="soundTest" onended="gid('musicVolumeTest').innerHTML = 'Test'">
+            <source src="Resources/Music/Kingdom - sound test.wav" />
+        </audio>
+    </div>
+
+    <h1 style="margin:1%;">Settings</h1>
+
+    <h2>General Settings</h2>
+    <table>
+        <tr>
+            <td>
+                Unit move animation speed
+            </td>
+            <td>
+                <input id="move_anim_slider" type="range" value="0.2" min="0" max="1" step="0.05" onchange="saved = false; changeTitle('Kingdom *'); gid('RangeVis').innerHTML = this.value == 0 ? 'Off' : this.value;" />
+            </td>
+            <td>
+                <span id="RangeVis">0.2</span> (Default: 0.2)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Map move animation speed
+            </td>
+            <td>
+                <input id="offset_anim_slider" type="range" value="0.5" min="0" max="1" step="0.05" onchange="saved = false; changeTitle('Kingdom *'); gid('offsetAnimVis').innerHTML = this.value == 0 ? 'Off' : this.value;" />
+            </td>
+            <td>
+                <span id="offsetAnimVis">0.2</span> (Default: 0.2)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Music & Sound effects Volume
+            </td>
+            <td>
+                <input id="music_volume" type="range" value="0.1" min="0" max="1" step="0.05" onchange="saved = false; changeTitle('Kingdom *'); gid('musicVolumeVis').innerHTML = this.value == 0 ? 'Off' : this.value; gid('soundTest').volume = this.value;" />
+            </td>
+            <td>
+                <span id="musicVolumeVis">0.1</span> (Default: 0.1) <span id="musicVolumeTest" style="color: #14a927; font-size: 1.2em;" onclick="var a = gid('soundTest'); a.play(); this.innerHTML = '...';">Test</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Enable debug mode
+            </td>
+            <td>
+                <input id="debug_mode_checkbox" onchange="saved = false; changeTitle('Kingdom *');" type="checkbox" />
+            </td>
+            <td>
+                &nbsp;
+            </td>
+        </tr>
+    </table>
+
+    <h2>Game Settings</h2>
+    <table>
+        <tr>
+            <td>
+                Width (and height) of generated map
+            </td>
+            <td>
+                <input id="number_of_tiles" type="number" min="32" max="256" value="64" onchange="saved = false; changeTitle('Kingdom *');" />
+            </td>
+            <td>
+                32 - 256 (Default: 64)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Width (and height) of visible piece of map
+            </td>
+            <td>
+                <input id="number_of_visible_tiles" type="number" min="10" max="50" value="20" onchange="saved = false; changeTitle('Kingdom *');" />
+            </td>
+            <td>
+                10 - 50 (Default: 20)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Number of opponents
+            </td>
+            <td>
+                <input id="number_of_opponents" type="number" min="1" max="3" value="1" onchange="saved = false; changeTitle('Kingdom *');" />
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>
+                Begin with fog
+            </td>
+            <td>
+                <input id="begin_fog" type="checkbox" checked="checked" onchange="saved = false; changeTitle('Kingdom *');" />
+            </td>
+            <td>
+                Start the game with fog all around the world
+            </td>
+        </tr>
+    </table>
+    <button onclick="Save(); window.location = 'index.html';">Save and return to main menu</button>
+    <button onclick="ResetDefault();">Restore default settings</button>
+</body>
+</html>

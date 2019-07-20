@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Kingdom - Strategy Game</title>
+    <link rel="icon" type="image/png" href="http://spam.soptik.sweb.cz/kingdom-test-1489-27817/favicon.png" />
+
+    <!-- Social Networks meta -->
+    <meta property="og:title" content="Kingdom - Strategy Game" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://spam.soptik.sweb.cz/kingdom-test-1489-27817/" />
+    <meta property="og:image" content="http://spam.soptik.sweb.cz/kingdom-test-1489-27817/favicon.png" />
+    <meta property="og:description" content="Game for ITnetwork Summer 2017 competition. Made by Petr Šťastný " />
+
+
+    <link href="default.css" type="text/css" rel="stylesheet" onload="this.href = window.localStorage['kingdom_style'] == undefined ? 'bluper.css' : window.localStorage['kingdom_style'];" />
+
+    <script>
+        var timer = 4;
+        function showSplashScreen() {
+            if (window.localStorage["showSplashScreen"] != "false" && window.sessionStorage["showSplashScreen"] != "false") {
+                document.getElementById("splashScreen").setAttribute("style", "display: initial;");
+                //window.setTimeout(function f() { document.getElementById('splashScreen').setAttribute('style', 'display: none;'); }, 4000)
+                window.setTimeout(dispTimer, 1000);
+                window.sessionStorage["showSplashScreen"] = "false";
+            }
+        }
+
+        function dispTimer() {
+            timer--;
+            if (timer == 0) {
+                document.getElementById('splashScreen').setAttribute('style', 'display: none;');
+            } else {
+                document.getElementById("closeBut").innerHTML = "Close (" + timer.toString() + "s)";
+                window.setTimeout(dispTimer, 1000);
+            }
+        }
+
+        function showHelp() {
+            document.body.innerHTML += "<div class='lightbox' onclick='this.remove();'><div class='lightboxContent' onclick='return false;' style='overflow: hidden;'><iframe src='howToPlay.html'></iframe></div></div>";
+        }
+    </script>
+</head>
+<body onload="showSplashScreen(); document.getElementById('nop').innerHTML = 'Select Number of Opponents (' + (localStorage['kingdom-number_opponents'] == undefined ? 1 : localStorage['kingdom-number_opponents']) + ')';
+    if (localStorage['game_continue'] == null || localStorage['game_continue'] == '') { document.getElementById('continueDiv').style.setProperty('display', 'none'); }">
+    <div class="credits">
+        <p>
+            Programming: Petr Šťastný<br />
+            Textures: Petr Šťastný<br />
+            Music: Petr Šťastný<br />
+            Testing & Great Help: <a href="https://play.google.com/store/apps/developer?id=Pyro+Games" target="_blank">Andree Pyro</a>
+        </p>
+    </div>
+
+    <div class="splashScreen" id="splashScreen" style="display: none;">
+        <a href="https://www.itnetwork.cz/nezarazene/letni-programatorska-soutez-2017" target="_blank">
+            <img src="https://www.itnetwork.cz/images/5/competitions/itnetwork_summer_2017.jpg" alt="ITnetwork Summer 2017" onerror="this.setAttribute('style', 'display: none;')" />
+        </a>
+        <div class="wrapper">
+            <div>
+                <button style="background-color: #303030;" id="closeBut" onclick="document.getElementById('splashScreen').setAttribute('style', 'display: none;');">Close (4s)</button>
+            </div>
+            <div>
+                <button style="background-color: #303030;" onclick="window.localStorage['showSplashScreen'] = 'false'; document.getElementById('splashScreen').setAttribute('style', 'display: none;');">I dont care</button>
+            </div>
+        </div>
+    </div>
+
+    <h1>Kingdom</h1>
+    <p>
+        Kingdom is turn-based medieval strategy. This game tries to follow game concept of games like Civilization. <br />
+        Move your units, attack your opponents, conquer new lands and be the strongest <strong>Kingdom</strong> in the world!
+    </p>
+    <div class="wrapper">
+        <div>
+            <button onclick="localStorage['game_continue'] = ''; window.location = 'game.html';" class="defaultSize">New Game</button>
+        </div>
+        <div id="continueDiv">
+            <button onclick="window.location = 'game.html';" class="defaultSize">Continue</button>
+        </div>
+    </div>
+    <button onclick="window.location = 'settings.html'">Settings</button>
+    <button onclick="window.location = 'howToPlay.html'">How to play</button>
+    <button onclick="window.location = 'Achievement.html'">Achievements</button>
+    <button onclick="window.location = 'styles.html'">Select Style</button>
+    <div>
+        <h2 id="nop" style="margin-bottom: -1%;">Select Number of Opponents (loading...)</h2>
+        <div class="thirdWrapper">
+            <div>
+                <button onclick="localStorage['kingdom-number_opponents'] = '1'; document.getElementById('nop').innerHTML = 'Select Number of Opponents (' + localStorage['kingdom-number_opponents'] + ')';">1</button>
+            </div>
+            <div>
+                <button onclick="localStorage['kingdom-number_opponents'] = '2'; document.getElementById('nop').innerHTML = 'Select Number of Opponents (' + localStorage['kingdom-number_opponents'] + ')';">2</button>
+            </div>
+            <div>
+                <button onclick="localStorage['kingdom-number_opponents'] = '3'; document.getElementById('nop').innerHTML = 'Select Number of Opponents (' + localStorage['kingdom-number_opponents'] + ')';">3</button>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,411 @@
+﻿body {
+    font-size: 0.9em;
+    font-weight: 200;
+    word-spacing: 4px;
+    font-family: "Open Sans", sans-serif;
+    text-align: center;
+    cursor: default;
+    /* No text selecting */
+    user-select: none; /* Chrome, Opera */
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Safari */
+    margin: 0px;
+    padding: 0px;
+    background-color: #272323;
+    color: #00b70c;
+}
+
+p {
+    color: #00b70c;
+}
+
+.left {
+    text-align: left;
+    font-size: 1.1em;
+    padding: 2%;
+    line-height: 1.5em;
+}
+
+h1, h2, h3, h4 {
+    font-weight: 300;
+    font-size: 2em;
+}
+
+h1 {
+    font-size: 2.8em;
+}
+
+a {
+    color: #dca200;
+    text-decoration: none;
+}
+
+    a[href^="#"] {
+        color: #00b70c;
+    }
+
+button {
+    width: 88%;
+    padding: 1.5em;
+    background-color: white;
+    border: 1px solid #c8c8c8;
+    margin: 1.8%;
+    margin-bottom: 0.2%;
+    cursor: pointer;
+    background-color: #272323;
+    color: #00b70c;
+}
+
+    button:hover {
+        background-color: #3b3636;
+    }
+
+    button:focus {
+        outline: none;
+    }
+
+hr {
+    margin-top: 2%;
+    border-color: #c8c8c8;
+    width: 90%;
+}
+
+.buildDiv {
+    position: absolute;
+    background-color: #ebebeb;
+    bottom: 5%;
+    left: 5%;
+    width: 90%;
+}
+
+#canvas {
+    min-width: 480px;
+    min-height: 480px;
+    width: 100vmin;
+    height: 100vmin;
+    position: absolute;
+    left: 0px;
+}
+
+.gameEscMenu {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+    .gameEscMenu > div {
+        background-color: #272323;
+        color: #00b70c;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 2%;
+        padding: 2%;
+    }
+
+ul {
+    list-style-type: none;
+}
+
+iframe {
+    width: 99%;
+    height: 80vmin;
+}
+
+aside {
+    right: 0px;
+    position: absolute;
+}
+
+.responsivityWarn {
+    display: none;
+    color: red;
+}
+
+strong {
+    font-weight: 400;
+    font-size: 1.1em;
+}
+
+table {
+    font-size: 1.1em;
+    width: 80%;
+    margin-left: 10%;
+}
+
+input {
+    width: 100%;
+    text-align: center;
+}
+
+td:nth-of-type(3) {
+    text-align: left;
+    padding-left: 2%;
+}
+
+.footer {
+    width: 100%;
+    position: sticky;
+    bottom: 20px;
+}
+
+.lightbox {
+    z-index: 99;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    margin: 0, 0, 0, 0;
+    padding: 2%, 4%, 3%, 2%;
+    background-color: rgba(206, 206, 206, 0.7);
+}
+
+.lightboxContent {
+    border: 3px solid #e4e3e3;
+    width: 90%;
+    margin: 5%;
+    padding: 2%, 4%, 3%, 2%;
+    background-color: white;
+    max-height: 80%;
+    overflow-y: auto;
+}
+
+.recruitBox {
+    position: fixed;
+    bottom: 5%;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 3px solid #3b3636;
+    background-color: #272323;
+    color: #00b70c;
+}
+
+.recruitStornoBut {
+    width: auto;
+    padding: 0.5%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: initial;
+    cursor: initial;
+    color: #ff510e;
+    font-size: 1.2em;
+    margin-top: 2%;
+    border: 0px;
+    transition: none;
+}
+
+.recruitBut:hover {
+    background-color: initial;
+}
+
+.wrapper {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+}
+
+    .wrapper div {
+        display: table-cell;
+    }
+
+        .wrapper div button {
+            padding: 10%;
+        }
+
+            .wrapper div button.defaultSize {
+                padding: 1.5em;
+            }
+
+
+.techtreeWrapper {
+    padding: 2%;
+    display: flex;
+    overflow: auto;
+}
+
+    .techtreeWrapper div {
+        flex: 0 0 25%;
+    }
+
+.thirdWrapper {
+    padding: 2%;
+    display: flex;
+    overflow: auto;
+}
+
+    .thirdWrapper div {
+        flex: 0 0 33%;
+    }
+
+/*
+@media screen and (max-width: 1100px) {
+    aside{
+        position: initial;
+    }
+    #nextTurn{
+        margin-top: 40%;
+        float:right;
+    }
+    body{
+        overflow: auto;
+    }
+}*/
+
+#researchDiv {
+    position: absolute;
+    bottom: 5%;
+    left: 5%;
+    width: 90%;
+    background-color: #272323;
+    border: 1px solid #342f2f;
+}
+
+.splashScreen {
+    z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(1, 1, 1, 0.7);
+}
+
+img {
+    margin-top: 2%;
+    height: 80vh;
+}
+
+.splashScreen button {
+    padding: initial !important;
+    background-color: black;
+    color: white;
+    font-size: 1.2em;
+    border: 1px solid #262626;
+    height: 10vmin;
+}
+
+    .splashScreen button:hover {
+        background-color: #464646;
+    }
+
+progress {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20%;
+}
+
+    progress::-webkit-progress-bar {
+        background-color: white;
+    }
+
+.credits {
+    position: absolute;
+    text-align: left;
+    margin-left: 1%;
+    font-size: 0.8em;
+    word-spacing: initial;
+}
+
+.achiev {
+    border: 1px solid rgb(206, 206, 206);
+    margin: 1%;
+}
+
+    .achiev h3 {
+        color: white;
+    }
+
+    .achiev p, .achievDone p {
+        font-size: 1.2em;
+        color: white;
+    }
+
+.achievDone {
+    border: 1px solid #00b70c;
+    margin: 1%;
+}
+
+    .achievDone h3 {
+        color: #00b70c;
+    }
+
+/* Loading animation */
+.loadingScreen {
+    background-color: rgba(169, 169, 169, 0.42);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 999;
+}
+
+.loader {
+    padding-top: 20%;
+    width: 100%;
+    height: 100%;
+}
+
+    .loader img.base {
+        width: 64px;
+        height: 64px;
+        position: absolute;
+    }
+
+    .loader img.circ {
+        position: absolute;
+        width: 64px;
+        height: 64px;
+        animation: spin 1.5s ease-in-out infinite;
+        -o-animation: spin 1.5s ease-in-out infinite;
+        -moz-animation: spin 1.5s ease-in-out infinite;
+        -webkit-animation: spin 1.5s ease-in-out infinite;
+    }
+
+    .loader p {
+        position: absolute;
+        padding-top: 128px;
+        text-align: center;
+        width: 100%;
+        padding-left: 32px;
+        font-size: 2em;
+        font-weight: 400;
+    }
+
+        .loader p span {
+            font-size: 0.8em;
+            font-weight: 300;
+        }
+
+
+@keyframes spin {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    aside {
+        display: none;
+    }
+
+    article {
+        display: none;
+    }
+
+    .responsivityWarn {
+        display: block;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    .credits {
+        display: none;
+    }
+}

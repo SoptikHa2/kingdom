@@ -1,0 +1,98 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Kingdom</title>
+
+    <link href="default.css" type="text/css" rel="stylesheet" onload="this.href = window.localStorage['kingdom_style'] == undefined ? 'bluper.css' : window.localStorage['kingdom_style'];" />
+    <script src="bridge.min.js"></script>
+    <script src="bridge.console.min.js"></script>
+    <script src="bridge.meta.min.js"></script>
+    <script src="Kingdom.min.js"></script>
+    <script src="Kingdom.meta.min.js"></script>
+
+    <link rel="icon" type="image/png" href="http://spam.soptik.sweb.cz/kingdom-test-1489-27817/favicon.png" />
+    <meta property="og:title" content="Kingdom - Strategy Game" />
+    <meta property="og:type" content="game" />
+    <meta property="og:url" content="http://spam.soptik.sweb.cz/kingdom-test-1489-27817/" />
+    <meta property="og:image" content="http://spam.soptik.sweb.cz/kingdom-test-1489-27817/favicon.png" />
+    <meta property="og:description" content="Game for ITnetwork Summer 2017 competition. Made by Petr Šťastný " />
+
+    <script>
+        function showHelp() {
+            document.body.innerHTML += "<div class='lightbox' onclick='this.remove();'><div class='lightboxContent' onclick='return false;' style='overflow: hidden;'><iframe src='howToPlay.html'></iframe></div></div>";
+        }
+    </script>
+</head>
+<body style="overflow: hidden;" onbeforeunload="if(!Kingdom.App.isSaved) return 'Are you sure? You will lose all your unsaved progress.';">
+    <div style="display: none;">
+        <audio controls="controls" loop="loop">
+            <!-- Todo: multiple tracks: add them to one -->
+            <source src="Resources/Music/Kingdom - main theme.wav" />
+        </audio>
+    </div>
+
+    <div id="announcement" style="position:absolute; top: 10%; text-align: center; width: 100%; z-index: 101; display: none;" oncontextmenu="return false;"></div>
+
+    <div class="responsivityWarn">
+        <h2>Cannot run main game!</h2>
+        <p>You need resolution at least 1280px (width) to run this game. Use another device or try this simplified version:</p>
+        <div style="color: black;">
+            <p>
+                Click on canvas to begin
+            </p>
+            <p id="gameInfo" style="position: absolute;">
+
+            </p>
+        </div>
+        <div id="smallResGame">
+            <canvas id="pong" width="480" height="480" oncontextmenu="return false;" style="border: 1px solid black; border-bottom: 1px solid red;"></canvas>
+        </div>
+    </div>
+    <content>
+        <img style="display: none;" src="textureMap.png" id="textureMap" />
+
+        <article>
+            <canvas id="canvas" width="3200" height="3200" oncontextmenu="return false;">This browser doesn't support canvas. Download some <a href="https://www.google.com/chrome/browser/desktop/index.html">real browser</a>.</canvas>
+        </article>
+        <aside id="aside" style="height: 100%;">
+            <div id="playerInfo" style="font-size: 1.5em;"></div>
+            <div style="position: absolute;">
+                <h1 id="info_head"></h1>
+                <div>
+                    <canvas id="infoCanvas" width="64" height="64"></canvas>
+                </div>
+                <div id="info_text">
+
+                </div>
+            </div>
+            <div style="position:absolute;bottom:8%;">
+                <button id="research" style="/*margin-top: 70%;*/">Research</button>
+                <div class="wrapper">
+                    <div>
+                        <button id="nextTurn" class="defaultSize">Next Turn</button>
+                    </div>
+                    <div>
+                        <button id="save" class="defaultSize">Save Game</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </content>
+
+    <div id="loadingScreen" class="loadingScreen" style="display: none;">
+        <div class="loader">
+            <img class="base" src="loading_dot.png" />
+            <img class="circ" src="loading_circle.png" />
+            <p>
+                Saving...
+                <br />
+                <span id="details">
+                    This will take a while. Make yourself cup of coffee...
+                </span>
+            </p>
+        </div>
+    </div>
+</body>
+</html>
